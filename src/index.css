@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* --- 自訂粗獷主義風格 (Brutalist Style) --- */
+@import url('[https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&family=Oswald:wght@700&family=Public+Sans:wght@300;900&display=swap](https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&family=Oswald:wght@700&family=Public+Sans:wght@300;900&display=swap)');
+
+:root { 
+  --raw-concrete: #d1d1cf; 
+  --ink-black: #121212; 
+  --blood-orange: #ff3e00; 
+}
+
+.font-oswald { font-family: 'Oswald', 'Noto Sans TC', sans-serif; }
+.font-public { font-family: 'Public Sans', sans-serif; }
+
+.brutalist-shadow { box-shadow: 15px 15px 0px rgba(0,0,0,0.15); }
+.brutalist-shadow-sm { box-shadow: 4px 4px 0px rgba(0,0,0,1); }
+.brutalist-shadow-btn { box-shadow: 6px 6px 0px rgba(0,0,0,1); }
+
+.bg-concrete { 
+  background-color: #bbb; 
+  background-image: url('[https://www.transparenttextures.com/patterns/concrete-wall.png](https://www.transparenttextures.com/patterns/concrete-wall.png)'); 
+}
