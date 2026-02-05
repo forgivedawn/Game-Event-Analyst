@@ -17,22 +17,24 @@ import {
   Key,
   Trash2,
   Languages,
-  HelpCircle, // 新增 Help icon
+  HelpCircle,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Coffee // 新增 Coffee icon
 } from 'lucide-react';
 
 /**
- * 遊戲事件時間軸分析器 V2.7.4 (Brutalist Concrete Edition)
+ * 遊戲事件時間軸分析器 V2.8.1 (Brutalist Concrete Edition)
  * * 更新日誌：
- * - 優化使用說明文案：移除重複的 "Step X" 文字，避免與編號 Badge 重複
+ * - 更新 Buy Me a Coffee 連結
+ * - 更新 Footer 作者資訊
  */
 
 // 翻譯字典
 const translations = {
   'zh-TW': {
     title: "EVENT ANALYZER", 
-    subtitle: "V2.7 // Steam追蹤 x 行銷事件分析",
+    subtitle: "V2.8 // Steam追蹤 x 行銷事件分析",
     apiKeyStatus: { set: "KEY ACTIVE", unset: "NO KEY" },
     getKey: "GET KEY",
     step1: "步驟 01：目標設定", 
@@ -56,14 +58,15 @@ const translations = {
     aiSearching: "SEARCHING NEURAL NET...",
     footerPowered: "SYSTEM: GEMINI 2.5 FLASH // ENGINE: GOOGLE SEARCH",
     footerDisclaimer: "DATA FOR REFERENCE ONLY. VERIFY SOURCES.",
-    footerAuthor: "Made by @CptVice",
+    footerAuthor: "Made by Dawn", // Update: 作者名稱更新
+    buyMeCoffee: "贊助開發", 
     help: {
         button: "使用說明",
         title: "OPERATIONAL MANUAL",
-        s1: "輸入遊戲名稱", // Removed "Step 1:"
-        s2: "下載 Pre-release 追蹤 CSV", // Removed "Step 2:"
+        s1: "輸入遊戲名稱", 
+        s2: "下載 Pre-release 追蹤 CSV", 
         s2_desc: "建議來源：",
-        s3: "輸入你的 Gemini API Key" // Removed "Step 3:"
+        s3: "輸入你的 Gemini API Key" 
     },
     errors: {
       noGameName: "ERROR: TARGET NAME REQUIRED",
@@ -85,7 +88,7 @@ const translations = {
   },
   'en-US': {
     title: "EVENT ANALYZER",
-    subtitle: "V2.7 // STEAM TRACKING x MARKETING EVENTS",
+    subtitle: "V2.8 // STEAM TRACKING x MARKETING EVENTS",
     apiKeyStatus: { set: "KEY ACTIVE", unset: "NO KEY" },
     getKey: "GET KEY",
     step1: "STEP 01: TARGET",
@@ -109,14 +112,15 @@ const translations = {
     aiSearching: "SEARCHING NEURAL NET...",
     footerPowered: "SYSTEM: GEMINI 2.5 FLASH // ENGINE: GOOGLE SEARCH",
     footerDisclaimer: "DATA FOR REFERENCE ONLY. VERIFY SOURCES.",
-    footerAuthor: "Made by @CptVice",
+    footerAuthor: "Made by Dawn", // Update: 作者名稱更新
+    buyMeCoffee: "Buy Me a Coffee", 
     help: {
         button: "MANUAL",
         title: "OPERATIONAL MANUAL",
-        s1: "Enter Game Name", // Removed "Step 1:"
-        s2: "Download Pre-release Tracking CSV", // Removed "Step 2:"
+        s1: "Enter Game Name", 
+        s2: "Download Pre-release Tracking CSV", 
         s2_desc: "Recommended Sources:",
-        s3: "Enter your Gemini API Key" // Removed "Step 3:"
+        s3: "Enter your Gemini API Key" 
     },
     errors: {
       noGameName: "ERROR: TARGET NAME REQUIRED",
@@ -137,6 +141,23 @@ const translations = {
     }
   }
 };
+
+// Buy Me a Coffee 懸浮按鈕組件
+const BuyMeACoffeeWidget = ({ text }) => (
+  <a
+    href="https://buymeacoffee.com/dawn31" // Update: 連結更新
+    target="_blank"
+    rel="noreferrer"
+    className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 bg-[#FFDD00] border-4 border-[#121212] text-[#121212] font-black font-oswald uppercase tracking-wider brutalist-shadow-btn transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none group text-sm md:text-base hover:bg-white"
+    title="Support Development"
+  >
+    <div className="bg-white rounded-full p-1 border-2 border-[#121212] group-hover:rotate-12 transition-transform">
+        <Coffee size={20} strokeWidth={3} className="text-[#121212]" />
+    </div>
+    <span className="hidden md:inline">{text}</span>
+    <span className="md:hidden">BMC</span>
+  </a>
+);
 
 const App = () => {
   // --- 狀態管理 ---
@@ -637,6 +658,7 @@ const App = () => {
     `}</style>
     
     <div className="min-h-screen bg-concrete font-public p-4 md:p-8 flex justify-center items-start">
+      <BuyMeACoffeeWidget text={t.buyMeCoffee} />
       <div className="w-full max-w-5xl bg-[var(--raw-concrete)] border-8 border-[var(--ink-black)] brutalist-shadow">
         
         {/* Header Block */}
